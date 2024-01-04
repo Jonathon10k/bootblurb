@@ -1,0 +1,53 @@
+
+/* Variables */
+
+:root {
+    --text-col-main: rgb(63, 77, 108, 1);
+    --text-col-secondary: rgb(55, 48, 48);
+    --card-bg-col: rgb(237, 235, 246);
+    --bg-col-main: rgb(55, 48, 48);
+}
+
+/* Default elements */
+
+body {
+    
+}
+
+h1 {
+
+}
+
+/* Nav section */
+
+.nav-header {
+    background-color: var(--bg-col-main); 
+}
+
+/* Main section */
+
+.main {
+    width: 80%;
+    height: 500px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-card {
+    background-color: var(--card-bg);
+    height: 300px;
+}
+/* Footer section */
+
+.result-card--header {
+    background-color: var(--card-bg-col) !important;
+}
+
+.result-card--text {
+    color: var(--text-col-main);
+}
+
+.result-card--footer {
+    background-color: var(--card-bg-col) !important;
+}
