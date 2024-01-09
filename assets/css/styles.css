@@ -75,9 +75,15 @@
   footer {
     background-color: var(--footer-col-main);
     color: var(--text-col-secondary);
-  
+    position: fixed;
     bottom: 0;
-    height: 100px;
+    width: 100%;
+    padding: 20px;
+    height: 70px; 
+  }
+  
+  footer .text-body-secondary {
+    color: var(--text-col-secondary);
   }
   
   .feather:hover {
