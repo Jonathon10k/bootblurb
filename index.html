@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <!-- Nav section -->
     <nav class="nav-header header d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
           <svg class="bi me-2" width="40" height="32">
@@ -21,14 +22,14 @@
           </svg>
           <span class="fs-4 text-white">BootBlurb</span>
         </a>
-        <ul class="nav nav-pills justify-content-center"> <!-- Center the list items -->
+        <ul class="nav nav-pills justify-content-center">
           <li class="nav-item">
-            <button class="btn nav-link btn-link text-white fs-4" id="aboutBtn">About</button>
+            <button class="about-button btn nav-link btn-link text-white fs-4" data-bs-toggle="modal" data-bs-target="#modal-about">About</button>
           </li>
         </ul>
       </nav>
 
-      <!--Cards-->
+      <!-- Search section -->
     <div class="container mt-4">
       <div class="row justify-content-center">
         <div class="col-md-6">
@@ -71,7 +72,7 @@
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="col-md-4">
+          <div class="col-md-4 fade show">
             <div class="result-card card border-success mb-3">
               <div
                 class="result-card--header card-header bg-transparent border-success"
@@ -114,17 +115,18 @@
               </div>
             </div>
           </div>
-<!--Modal-->
-<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalTour">
-    <div class="modal-dialog" role="document">
+<!--About modal-->
+<div class="modal fade position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modal-about">
+    <div class="modal-dialog modal-dialog-centered" role="modal">
       <div class="modal-content rounded-4 shadow">
         <div class="modal-body p-5">
-          <h2 class="fw-bold mb-3">Welcome to BootBlurb!</h2>
-          <div class="mb-4"> <!-- Added margin-bottom to this div -->
-            <p>Dive into web development effortlessly! BootBlurb, your go-to quick-reference tool, gives you swift, clear summaries for web development terms.</p>
-            <p>Simply enter a term, grasp the essence, and explore deeper if you wish. Simplifying the coding journey, one click at a time! Give it a go!</p>
+          <h2 class="fw-bold mb-3 text-center">Welcome to BootBlurb!</h2>
+          <div class="mb-4">
+            <p><strong>BootBlurb</strong> - your go-to front-end bootcamp quick-reference tool - gives you swift, clear summaries for web development terms.</p>
+            <p>Simply enter a search term, grasp the essence from a curated selection of the best web references, and explore more deeply at your own pace. <strong>BootBlurb</strong>- Supporting your bootcamp journey, one blurb at a time!</p>
+            <p>[Please note that this an MVP product and some features, such as user accounts, search source filtering, and module-specific search content, are not currently available.]</p>
           </div>
-          <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Great, thanks!</button>
+          <button type="button" class="btn btn-lg btn-danger mt-5 w-100" data-bs-dismiss="modal">Got it!</button>
         </div>
       </div>
     </div>
@@ -149,16 +151,6 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
   </footer>
     </div>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-XrqSTj7e6sFi1P9VsAzq4LXBoBUeWBn5EJz1l3Etn9QRaEnQfaAFd5GauG4gXyvo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-o3I2Wq4dZJ2B3caO0MLtq3xqFZVa0CZsK1ttL3gCvlEmaelz2J6E5E5nGOmfpTeQ"
-      crossorigin="anonymous"
-    ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
