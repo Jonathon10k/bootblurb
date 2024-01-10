@@ -13,6 +13,10 @@
   body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
     background-color: #e9ecef;
   }
   
@@ -29,7 +33,7 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+     border: 1px solid green;
   }
   
   /** Query bubble section **/
@@ -47,6 +51,10 @@
   
   /** Card section **/
   
+  .card-container {
+    margin-bottom: 20px;
+  }
+
   .result-card {
     background-color: var(--card-bg-col);
     height: 300px;
@@ -72,20 +80,23 @@
   
   /** Footer section **/
   
-  footer {
+  .page-footer {
     background-color: var(--footer-col-main);
     color: var(--text-col-secondary);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    height: 100px;
     padding: 20px;
-    height: 70px; 
+    margin-top: 20px;
+  }
+
+  .footer-container {
+    width: 50%;
+    margin: 0 auto;
   }
   
-  footer .text-body-secondary {
-    color: var(--text-col-secondary);
+  .feather {
+    margin: 0 5px;
   }
-  
+
   .feather:hover {
     cursor: pointer;
     transition: transform 0.3s ease-in;
