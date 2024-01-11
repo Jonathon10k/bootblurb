@@ -25,7 +25,7 @@
         <svg class="bi me-2" width="40" height="32">
           <use xlink:href="#bootstrap"></use>
         </svg>
-        <span class="fs-4 text-white"><img src="assets/images/wings.png" width="32"/>BootBlurb</span>
+        <span class="logo fs-4 text-white"><img src="assets/images/wings.png" class="pb-2" width="32"/>BootBlurb</span>
       </a>
       <ul class="nav nav-pills justify-content-center">
         <li class="nav-item">
@@ -45,22 +45,23 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..." />
-            <button class="btn px-4 btn-danger" type="button">Go</button>
+            <input type="text" class="form-control" placeholder="Search a concept (e.g. 'JS objects')" />
+            <button class="search-btn btn px-4 btn-danger" type="button" alt="search button"><span class="search-btn__span">Go!</span></button>
           </div>
+          <div class="bubbles-container mt-2"></div>
         </div>
       </div>
     </div>
     <!-- Main content container -->
     <div class="main d-flex col m-auto mt-5">
-      <!-- Result card section -->
-      <div class="card-container container mt-4">
+           <!-- Result card section -->
+      <div class="card-container container container-fluid mt-4">
         <div class="row justify-content-around">
           <!-- Card 1 -->
           <div class="col-md-4">
-            <div class="result-card card border-success mb-3">
+            <div class="result-card card mb-3">
               <div
-                class="result-card--header card-header bg-transparent border-success"
+                class="result-card--header card-header"
               >
                 <h5>MDN</h5>
               </div>
@@ -71,11 +72,11 @@
                 </p>
               </div>
               <div
-                class="result-card--footer card-footer bg-transparent border-success"
+                class="result-card--footer card-footer"
               >
                 <div class="d-flex col justify-content-end">
-                  <button class="btn btn-light px-3 rounded-4">Save</button>
-                  <button class="btn btn-danger px-4 mx-2 rounded-4">
+                  <button class="btn btn-light px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
+                  <button class="btn btn-success px-3 mx-2 rounded-3">
                     Visit
                   </button>
                 </div>
@@ -84,9 +85,9 @@
           </div>
           <!-- Card 2 -->
           <div class="col-md-4 fade show">
-            <div class="result-card card border-success mb-3">
+            <div class="result-card card mb-3">
               <div
-                class="result-card--header card-header bg-transparent border-success"
+                class="result-card--header card-header"
               >
                 <h5>W3Schools</h5>
               </div>
@@ -97,11 +98,11 @@
                 </p>
               </div>
               <div
-                class="result-card--footer card-footer bg-transparent border-success"
+                class="result-card--footer card-footer"
               >
                 <div class="d-flex col justify-content-end">
-                  <button class="btn btn-light px-3 rounded-4">Save</button>
-                  <button class="btn btn-danger px-4 mx-2 rounded-4">
+                  <button class="btn btn-light px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
+                  <button class="btn btn-success px-3 mx-2 rounded-3">
                     Visit
                   </button>
                 </div>
@@ -110,9 +111,9 @@
           </div>
           <!-- Card 3-->
           <div class="col-md-4">
-            <div class="result-card card border-success mb-3">
+            <div class="result-card card mb-3">
               <div
-                class="result-card--header card-header bg-transparent border-success"
+                class="result-card--header card-header"
               >
                 <h5>YouTube</h5>
               </div>
@@ -123,11 +124,11 @@
                 </p>
               </div>
               <div
-                class="result-card--footer card-footer bg-transparent border-success"
+                class="result-card--footer card-footer" 
               >
                 <div class="d-flex col justify-content-end">
-                  <button class="btn btn-light px-3 rounded-4">Save</button>
-                  <button class="btn btn-danger px-4 mx-2 rounded-4">
+                  <button class="btn btn-light px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
+                  <button class="btn btn-success px-3 mx-2 rounded-3">
                     Visit
                   </button>
                 </div>
@@ -160,7 +161,13 @@
                   as user accounts, search source filtering, and module-specific
                   search content, are not currently available.]
                 </p>
-                <p>Logo: <a href="https://www.flaticon.com/free-icons/wings" title="wings icons">Wings icons created by Freepik - Flaticon</a></p>
+                <h6 class="text-center">Attributions:</h6>
+                <p><ol><li>Logo: <a href="https://www.flaticon.com/free-icons/wings" title="wings icons">Wings icons created by Freepik - Flaticon</a></li>
+                  <li>Save icon: <a href="https://www.flaticon.com/free-icons/save" title="save icons">Save icons created by Freepik - Flaticon</a></li>
+                  <li><a href="https://www.flaticon.com/free-icons/hyperlink" title="hyperlink icons">Hyperlink icons created by Tanah Basah - Flaticon</a></li>
+                  </ol>
+                </p>
+                
               </div>
               <button
                 type="button"
@@ -232,7 +239,7 @@
         </svg>
         </div>
         <div class="page-footer-copyright text-center pt-2 md-6">
-          <span class="mb-3 mb-md-0 mx-auto text-white text-break">BootBlurb © 2023 The 5th Element (Paul T, Rich U, Jon E)</span>
+          <span class="mb-3 mb-md-0 mx-auto text-white text-break">BootBlurb © 2024 The 5th Element (Paul T, Rich U, Jon E)</span>
         </div>
       
       </div>
@@ -257,5 +264,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
