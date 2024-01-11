@@ -2,11 +2,11 @@ let searchBtn = document.querySelector(".search-btn");
 let searchBox = document.querySelector(".form-control");
 let footer = document.querySelector("footer");
 
-// ** API code ** //
+// ** Fetch code ** //
 
 // (Currently separated for readability/debugging but could be refactored for DRY)
 
-// Fetch Google result data and pass to renderBlurb function (uses Google Custom Search Engine API)
+// Fetch Google result data and pass to processCardData function (uses Google Custom Search Engine API)
 function googleFetch(inputQuery) {
     const API_KEY_GOOGLE = "AIzaSyBHtvodXNu1cIM_x7uofj7DM3IrxeczpNY";
     const CUSTOM_SE = "c5d5fca43c5174c62";
@@ -19,6 +19,17 @@ function googleFetch(inputQuery) {
         .catch(error => console.error("Error:", error));
 }
 
+// Fetch repo data from GitHub API and pass to processor function
+function stackFetch(inputQuery) {
+    let searchQuery = inputQuery;
+    const queryURL = `https://api.stackexchange.com/2.3/search?order=desc&sort=activity&intitle=${searchQuery}&site=stackoverflow`;
+    fetch(queryURL)
+        .then(response => response.json())
+        .then(gitData => renderStackData(gitData))
+        .catch(error => console.error("Error:", error))
+}
+
+// ** End Fetch code ** //
 
 // Process Google Custom Search data and render to Blurb card
 function processCardData(data) {
@@ -33,11 +44,8 @@ function processCardData(data) {
 
         if (site.includes("w3schools")) {
             renderCard(resultItem, "w3s");
-        } else if (site.includes("dev.to")) {
-            renderCard(resultItem, "yt");
         } else if (site.includes("mozilla")) {
             renderCard(resultItem, "mdn");
-
         }
     });
 }
@@ -48,13 +56,27 @@ function renderCard(result, id) {
     let p = document.querySelector(`.card-${id}-p`)
     title.textContent = result.title;
     p.textContent = `"${result.snippet}"`;
+}
 
+// Render SO data to card ('first, make it work...')
+function renderStackData(data) {
+   
+    console.log("TEST:", data.items[0].title)
+    let title = document.querySelector(".card-so-title");
+    let p = document.querySelector(".card-so-p");
+    let link = document.querySelector(".so-link");
+
+    title.textContent = `Q:"${data.items[0].title.slice(0,60)}..."`;
+    p.textContent = `Tags: ${data.items[0].tags.join(', ')}`;
+   link.setAttribute("href", data.items[0].link)
+    
 }
 
 // Search button event listener (refactor with delegation)
 searchBtn.addEventListener("click", () => {
     if (searchBox.value.trim() !== "") {
         googleFetch(searchBox.value);
+        stackFetch(searchBox.value);
         searchBox.value = "";
     }
 });
