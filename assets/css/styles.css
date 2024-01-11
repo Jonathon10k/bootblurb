@@ -1,134 +1,156 @@
 /** Variables **/
 
 :root {
-    --text-col-main: rgb(63, 77, 108, 1);
-    --text-col-secondary: white;
-    --card-bg-col: rgb(237, 235, 246);
-    --header-col-main: rgb(55, 48, 48);
-    --footer-col-main: rgb(55, 48, 48);
-  }
-  
-  /** Default elements **/
-  
-  body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-    background-color: #e9ecef;
-  }
-  
-  /** Nav section **/
-  
-  .nav-header {
-    background-color: var(--header-col-main);
-  }
-  
-  /** Main section **/
-  
-  .main {
-    width: 80%;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /** Query bubble section **/
-  
-  .bubble {
-    font-size: 0.9rem;
-    margin: 0 3px;
-    border: 1px solid white;
-  }
-  
-  .bubble:hover {
-    cursor: pointer;
-    /* animation: wobble 0.5s ease-in-out; */
-  }
-  
-  /** Card section **/
-  
-  .card-container {
-    margin-bottom: 20px;
-  }
+  --text-col-main: rgb(63, 77, 108, 1);
+  --text-col-secondary: white;
+  --card-bg-col: white;
+  --header-col-main: rgb(55, 48, 48);
+  --footer-col-main: rgb(55, 48, 48);
+}
 
-  .result-card {
-    background-color: var(--card-bg-col);
-    height: 300px;
-    border: 2px solid white !important;
-  }
-  
-  .result-card--header {
-    background-color: var(--header-col-main) !important;
-    color: var(--text-col-secondary);
-  }
-  
-  .card-body {
-    background-color: white;
-  }
-  
-  .result-card--text {
-    color: var(--text-col-main);
-  }
-  
-  .result-card--footer {
-    background-color: var(--header-col-main) !important;
-  }
-  
-  /** Footer section **/
-  
-  .page-footer {
-    background-color: var(--footer-col-main);
-    color: var(--text-col-secondary);
-    height: 100px;
-    padding: 20px;
-    margin-top: 20px;
-  }
+/** Default elements **/
 
-  .footer-container {
-    width: 50%;
-    margin: 0 auto;
-  }
-  
-  .feather {
-    margin: 0 5px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  background-color: #f1f2f3;
+}
 
-  .feather:hover {
-    cursor: pointer;
-    transition: transform 0.3s ease-in;
-    transform: scale(1.3);
-  }
-  
-  /** Modal **/
-  .about-button {
-    border: 1px solid white;
-    margin: 0 20px;
-    padding: 1px 8px;
-  }
+/** Nav section **/
 
-  .about-button:hover {
-    border: 1px solid grey;
-   }
-  /** Micro animations **/
-  
-  @keyframes wobble {
-    0% {
-      transform: translateX(-1px);
-    }
-    25% {
-      transform: translateX(1px);
-    }
-    50% {
-      transform: translateX(-1px);
-    }
-    75% {
-      transform: translateX(1px);
-    }
-    100% {
-      transform: translateX(0);
-    }
+.nav-header {
+  background-color: var(--header-col-main);
+}
+
+/** Main section **/
+
+.main {
+  width: 80%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/** Query bubble section **/
+
+.bubbles-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 25%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.bubble {
+  font-size: 0.9rem;
+  margin: 0 3px;
+  border: 1px solid white;
+  color: black;
+  font-size: 0.8rem;
+}
+
+.bubble:hover {
+  cursor: pointer;
+  border: 1px solid lightgrey;
+  /* animation: wobble 0.5s ease-in-out; */
+}
+
+/** Card section **/
+
+.card-container {
+  padding: 20px;
+}
+
+.result-card {
+  background-color: var(--card-bg-col);
+  height: 300px;
+  padding: 4px;
+  border: 1px solid lightgrey;
+}
+
+.result-card--header {
+  background-color: var(--header-col-main);
+  color: var(--text-col-secondary);
+}
+
+.card-body {
+  background-color: white;
+}
+
+.result-card--text {
+  color: var(--text-col-main);
+}
+
+.result-card--footer {
+  background-color: var(--header-col-main);
+}
+
+.result-card__btn_icon {
+  width: 18px;
+  margin: 0 1px;
+}
+
+.result-card button  {
+  animation: wobble 0.5s ease-in-out;
+}
+
+/** Footer section **/
+
+.page-footer {
+  background-color: var(--footer-col-main);
+  color: var(--text-col-secondary);
+  height: 100px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.footer-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.feather {
+  margin: 0 5px;
+}
+
+.feather:hover {
+  cursor: pointer;
+  transition: transform 0.3s ease-in;
+  transform: scale(1.3);
+}
+
+/** Modal **/
+.about-button {
+  border: 1px solid white;
+  margin: 0 20px;
+  padding: 1px 8px;
+}
+
+.about-button:hover {
+  border: 1px solid lightgray;
+  animation: wobble 0.5s ease-in-out;
+}
+/** Micro animations **/
+
+@keyframes wobble {
+  0% {
+    transform: translateX(-1px);
   }
-  
+  25% {
+    transform: translateX(1px);
+  }
+  50% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
