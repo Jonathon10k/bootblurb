@@ -54,8 +54,11 @@ function processCardData(data) {
 function renderCard(result, id) {
     let title = document.querySelector(`.card-${id}-title`);
     let p = document.querySelector(`.card-${id}-p`)
+    let link = document.querySelector(`.${id}-link`); console.log(link);
     title.textContent = result.title;
     p.textContent = `"${result.snippet}"`;
+    link.setAttribute("href", result.link);
+    console.log(result.link)
 }
 
 // Render SO data to card ('first, make it work...')
