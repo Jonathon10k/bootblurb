@@ -11,24 +11,45 @@ function googleFetch(inputQuery) {
     const API_KEY_GOOGLE = "AIzaSyBHtvodXNu1cIM_x7uofj7DM3IrxeczpNY";
     const CUSTOM_SE = "c5d5fca43c5174c62";
     let searchQuery = inputQuery;
-    let queryURL = `https://www.googleapis.com/customsearch/v1?key=${API_KEY_GOOGLE}&cx=${CUSTOM_SE}&q=${searchQuery}`;
+    let queryURL = `https://www.googleapis.com/customsearch/v1?key=${API_KEY_GOOGLE}&num=10&cx=${CUSTOM_SE}&q=${searchQuery}`;
 
     fetch(queryURL)
         .then(response => response.json())
-        .then(googleData => renderGoogleCard(googleData))
+        .then(googleData => processCardData(googleData))
         .catch(error => console.error("Error:", error));
 }
 
 
 // Process Google Custom Search data and render to Blurb card
-function renderGoogleCard(data) {
-    let card = document.querySelectorAll(".card-body");
-    let theCard = card[0];
-    let theData = data.items[1].snippet;
-    theCard.innerHTML = theData;
-    //console.log(data)
-    let cseResults = { ...data.items };
-    console.log("new obj:", cseResults)
+function processCardData(data) {
+
+
+    // Create an array of results sans Google metadata
+    let resultItems = [ ...data.items ];
+
+    // Identify individual query source and send item to renderCard()
+
+    resultItems.forEach(resultItem => {
+        let site = resultItem.displayLink;
+
+        if (site.includes("w3schools")) {
+            renderCard(resultItem, "w3s");
+        } else if (site.includes("freecodecamp")) {
+            renderCard(resultItem, "fcc");
+        } else if (site.includes("mozilla")) {
+            renderCard(resultItem, "mdn");
+
+        }
+    });
+}
+
+// Render query result to blurb card
+function renderCard(result, id) {
+    let title = document.querySelector(`.card-${id}-title`);
+    let p = document.querySelector(`.card-${id}-p`)
+    title.textContent = result.title;
+    p.textContent = `"${result.snippet}"`;
+
 }
 
 // Search button event listener (refactor with delegation)
@@ -46,12 +67,12 @@ let querySuggestions = [
     "JS Objects",
     "JS Arrays",
     "JS Functions",
-    "Git",
+    "HTML",
 ];
 
 function renderQueryBubbles() {
 
-     // Loop over the query suggestions array and render clickable 'bubbles'
+    // Loop over the query suggestions array and render clickable 'bubbles'
     querySuggestions.forEach(query => {
 
         let bubble = document.createElement("span");
