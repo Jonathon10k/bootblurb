@@ -1,6 +1,6 @@
 # BootBlurb
 
-BootBlurb is a web development quick-reference tool that provides swift, clear summaries for various web development terms. Simply enter a term, receive your answers, and explore deeper if you wish. This project utilizes HTML, CSS, Bootstrap, and JavaScript to create an intuitive and responsive user interface.
+BootBlurb is a web development quick-reference tool that provides swift, clear summaries for various web development terms. Simply enter a term, receive your answers, and explore deeper if you wish. This project utilizes HTML, CSS, Bootstrap, and JavaScript to create an intuitive and responsive user interface. Two APIs are used for supplying data - the Google Custom Search API and the StackExchange API.
 
 ## Features
 
@@ -9,7 +9,7 @@ BootBlurb is a web development quick-reference tool that provides swift, clear s
 - **About Modal:** A modal appears when user clicks the about button
 
 ## Getting Started
-
+Live link: (https://jonathon10k.github.io/bootblurb/)
 1. Clone the repository: `git clone https://github.com/your-username/BootBlurb.git`
 2. Open `index.html` in your preferred web browser.
 
