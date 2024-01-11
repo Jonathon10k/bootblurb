@@ -11,7 +11,7 @@ function googleFetch(inputQuery) {
     const API_KEY_GOOGLE = "AIzaSyBHtvodXNu1cIM_x7uofj7DM3IrxeczpNY";
     const CUSTOM_SE = "c5d5fca43c5174c62";
     let searchQuery = inputQuery;
-    let queryURL = `https://www.googleapis.com/customsearch/v1?key=${API_KEY_GOOGLE}&num=10&cx=${CUSTOM_SE}&q=${searchQuery}`;
+    let queryURL = `https://www.googleapis.com/customsearch/v1?key=${API_KEY_GOOGLE}&cx=${CUSTOM_SE}&q=${searchQuery}`;
 
     fetch(queryURL)
         .then(response => response.json())
@@ -23,19 +23,18 @@ function googleFetch(inputQuery) {
 // Process Google Custom Search data and render to Blurb card
 function processCardData(data) {
 
-
-    // Create an array of results sans Google metadata
-    let resultItems = [ ...data.items ];
-
+    // Create an array of results sans Google metadata (reverse to get most relevant results)
+    // Reverse() to get most relevant (Refactor when time allows!)
+    let resultItems = [...data.items].reverse();
+    console.log("resulItems array from spread: ", resultItems)
     // Identify individual query source and send item to renderCard()
-
     resultItems.forEach(resultItem => {
         let site = resultItem.displayLink;
 
         if (site.includes("w3schools")) {
             renderCard(resultItem, "w3s");
-        } else if (site.includes("freecodecamp")) {
-            renderCard(resultItem, "fcc");
+        } else if (site.includes("dev.to")) {
+            renderCard(resultItem, "yt");
         } else if (site.includes("mozilla")) {
             renderCard(resultItem, "mdn");
 
