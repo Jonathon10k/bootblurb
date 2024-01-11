@@ -66,7 +66,7 @@ function renderStackData(data) {
     let p = document.querySelector(".card-so-p");
     let link = document.querySelector(".so-link");
 
-    title.textContent = `Q:"${data.items[0].title.slice(0,60)}..."`;
+    title.textContent = `Q:"${data.items[0].title.slice(0,70)}..."`;
     p.textContent = `Tags: ${data.items[0].tags.join(', ')}`;
    link.setAttribute("href", data.items[0].link)
     
@@ -105,6 +105,7 @@ function renderQueryBubbles() {
         // Add event listener to trigger API search
         bubble.addEventListener("click", (e) => {
             googleFetch(e.target.textContent);
+            stackFetch(e.target.textContent);
             console.log("Clicked:", e.target.textContent);
         });
     });
