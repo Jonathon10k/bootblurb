@@ -3,7 +3,7 @@
 BootBlurb is a web development quick-reference tool that provides swift, clear summaries for various web development terms. Simply enter a term, receive your answers, and explore deeper if you wish. This project utilizes HTML, CSS, Bootstrap, and JavaScript to create an intuitive and responsive user interface. Two APIs are used for supplying data - the Google Custom Search API and the StackExchange API.
 
 ## Preview
-<img width="600px" src="./assets/images/bootblurb-screen.png" alt="BootBlurb screenshot" />
+<img width="600px" src="./assets/images/bootblurb-screenshot.png" alt="BootBlurb screenshot" />
 
 ## Features
 
