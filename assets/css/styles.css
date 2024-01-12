@@ -78,6 +78,12 @@ body {
   color: var(--text-col-secondary);
 }
 
+.result-card__head_icon {
+  width: 32px;
+  margin: 0 8px 0 0;
+  border: 1px solid white;
+  border-radius: 3px;
+}
 .card-body {
   background-color: white;
   color: black;
@@ -98,32 +104,24 @@ body {
   color: var(--text-col-main);
 }
 
-.result-card--footer {
-  background-color: var(--header-col-main);
-}
-
 .result-card__btn_icon {
   width: 18px;
   margin: 0 1px;
 }
 
-.result-card__head_icon {
-  width: 32px;
-  margin: 0 8px 0 0;
-  border: 1px solid white;
-  border-radius: 3px;
-}
-
-.icon-so {
-  background-color: white;
+.result-card--footer {
+  background-color: var(--header-col-main);
 }
 
 .result-card button  {
   animation: wobble 0.5s ease-in-out;
 }
 
-/** Footer section **/
+.icon-so {
+  background-color: white;
+}
 
+/** Footer section **/
 
 .page-footer {
   background-color: var(--footer-col-main);
@@ -134,8 +132,7 @@ body {
 }
 
 .footer-container {
-  width: 50%;
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .feather {
