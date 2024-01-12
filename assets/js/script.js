@@ -1,6 +1,10 @@
+// ** BootBlurb MVP logic - J.E. 1/2024 ** //
+
 let searchBtn = document.querySelector(".search-btn");
 let searchBox = document.querySelector(".form-control");
 let footer = document.querySelector("footer");
+let savedUL = document.querySelector(".saved-ul");
+let savedCards = [];
 
 // ** Fetch code ** //
 
@@ -8,6 +12,7 @@ let footer = document.querySelector("footer");
 
 // Fetch Google result data and pass to processCardData function (uses Google Custom Search Engine API)
 function googleFetch(inputQuery) {
+
     const API_KEY_GOOGLE = "AIzaSyBHtvodXNu1cIM_x7uofj7DM3IrxeczpNY";
     const CUSTOM_SE = "c5d5fca43c5174c62";
     let searchQuery = inputQuery;
@@ -21,6 +26,7 @@ function googleFetch(inputQuery) {
 
 // Fetch repo data from GitHub API and pass to processor function
 function stackFetch(inputQuery) {
+
     let searchQuery = inputQuery;
     const queryURL = `https://api.stackexchange.com/2.3/search?order=desc&sort=activity&intitle=${searchQuery}&site=stackoverflow`;
     fetch(queryURL)
@@ -37,7 +43,7 @@ function processCardData(data) {
     // Create an array of results sans Google metadata (reverse to get most relevant results)
     // Reverse() to get most relevant (Refactor when time allows!)
     let resultItems = [...data.items].reverse();
-    console.log("resulItems array from spread: ", resultItems)
+
     // Identify individual query source and send item to renderCard()
     resultItems.forEach(resultItem => {
         let site = resultItem.displayLink;
@@ -52,27 +58,26 @@ function processCardData(data) {
 
 // Render query result to blurb card
 function renderCard(result, id) {
+
     let title = document.querySelector(`.card-${id}-title`);
     let p = document.querySelector(`.card-${id}-p`)
-    let link = document.querySelector(`.${id}-link`); console.log(link);
+    let link = document.querySelector(`.${id}-link`);
     title.textContent = result.title;
     p.textContent = `"${result.snippet}"`;
     link.setAttribute("href", result.link);
-    console.log(result.link)
 }
 
 // Render SO data to card ('first, make it work...')
 function renderStackData(data) {
-   
-    console.log("TEST:", data.items[0].title)
+
     let title = document.querySelector(".card-so-title");
     let p = document.querySelector(".card-so-p");
     let link = document.querySelector(".so-link");
 
-    title.textContent = `Q:"${data.items[0].title.slice(0,70)}..."`;
+    title.textContent = `Q:"${data.items[0].title.slice(0, 70)}..."`;
     p.textContent = `Tags: ${data.items[0].tags.join(', ')}`;
-   link.setAttribute("href", data.items[0].link)
-    
+    link.setAttribute("href", data.items[0].link)
+
 }
 
 // Search button event listener (refactor with delegation)
@@ -109,9 +114,72 @@ function renderQueryBubbles() {
         bubble.addEventListener("click", (e) => {
             googleFetch(e.target.textContent);
             stackFetch(e.target.textContent);
-            console.log("Clicked:", e.target.textContent);
         });
     });
 }
 
+// Save card info to localStorage (in future refactor to validate/check for duplication)
+
+let saveBtns = document.querySelectorAll(".save-btn");
+
+saveBtns.forEach(btn => {
+
+    btn.addEventListener("click", function (e) {
+        let theCard = this.closest(".result-card"); // Get closest card to click target
+        let cardTitle = theCard.querySelector(".card-title").textContent;
+        let cardURL = theCard.querySelector(".btn-link").getAttribute("href");
+        let saveDate = new Date();
+
+        // Trigger button animation
+        savedAnim(e.target);
+
+        // Store in object and push to savedCards array
+        if (cardTitle !== "") {
+            let cardData = {
+                title: cardTitle,
+                url: cardURL,
+                date: saveDate.toLocaleDateString("en-GB"),
+            };
+            // Push new object to savedCards array
+            savedCards.push(cardData);
+
+            // Add array to LS
+            localStorage.setItem("savedCards", JSON.stringify(savedCards));
+
+        } else {
+            console.log("Error: this is a save about nothing!");
+            // Refactor: add visual alert
+        }
+    });
+});
+
+// Animate card save button on click (remove after 2 secs)
+function savedAnim(elem) {
+
+    let icon = elem.querySelector("img");
+    icon.classList.add("success");
+    // Remove class after 2 secs
+    setTimeout(() => {
+        icon.classList.remove("success");
+    }, 2000);
+}
+
+// Load saved card data from localStorage (Refactor: render to actual cards)
+function loadSaved() {
+    savedUL.innerHTML = ""; // Blank UL
+
+    let restoredCards = JSON.parse(localStorage.getItem("savedCards"));
+
+    restoredCards.forEach(item => {
+
+        let newItem = document.createElement("li");
+        newItem.innerHTML = `Date: ${item.date} Title: ${item.title} - URL: <a href="${item.url}">Click to visit!</a>`;
+
+        savedUL.appendChild(newItem);
+
+    });
+
+}
+
+// Initial suggestion bubbles render
 renderQueryBubbles();

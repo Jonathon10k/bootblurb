@@ -66,7 +66,7 @@
               
                 <h5><img src="assets/images/icon-mdn.png" class="result-card__head_icon" alt="MDN logo"/>MDN</h5>
               </div>
-              <div class="card-body text-success">
+              <div class="card-body">
                 <h5 class="card-title card-mdn-title"></h5>
                 <p class="result-card--text card-text card-mdn-p">
                  
@@ -76,9 +76,9 @@
                 class="result-card--footer card-footer"
               >
                 <div class="d-flex col justify-content-end">
-                  <button class="btn btn-light px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
-                  <a class="mdn-link" src="" href="" target="_blank">
-                    <button class="btn w3s-button btn-success px-3 mx-2 rounded-3">
+                  <button class="btn btn-light save-btn px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
+                  <a class="mdn-link btn-link" src="" href="" target="_blank">
+                    <button class="btn visit-btn w3s-button btn-success px-3 mx-2 rounded-3">
                     Visit
                   </button></a>
                 </div>
@@ -93,7 +93,7 @@
               >
                 <h5><img src="assets/images/icon-w3s.png" class="result-card__head_icon" alt="W3Shools logo"/>W3Schools</h5>
               </div>
-              <div class="card-body text-success">
+              <div class="card-body">
                 <h5 class="card-title card-w3s-title"></h5>
                 <p class="result-card--text card-text card-w3s-p">
                  
@@ -103,9 +103,9 @@
                 class="result-card--footer card-footer"
               >
                 <div class="d-flex col justify-content-end">
-                  <button class="btn btn-light px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
-                  <a class="w3s-link" src="" href="" target="_blank">
-                    <button class="btn w3s-button btn-success px-3 mx-2 rounded-3">
+                  <button class="btn btn-light save-btn px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
+                  <a class="w3s-link btn-link" src="" href="" target="_blank">
+                    <button class="btn visit-btn w3s-button btn-success px-3 mx-2 rounded-3">
                     Visit
                   </button></a>
                 
@@ -121,7 +121,7 @@
               >
                 <h5><img src="assets/images/icon-so.png" class="result-card__head_icon icon-so" alt="Stack Overflow logo"/>Stack Overflow</h5>
               </div>
-              <div class="card-body text-success">
+              <div class="card-body">
                 <h5 class="card-title card-so-title"></h5>
                 <p class="result-card--text card-text card-so-p text-center">
                  
@@ -131,9 +131,9 @@
                 class="result-card--footer card-footer" 
               >
                 <div class="d-flex col justify-content-end">
-                  <button class="btn btn-light px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
-                  <a class="so-link" src="" href="" target="_blank">
-                    <button class="btn w3s-button btn-success px-3 mx-2 rounded-3">
+                  <button class="btn btn-light save-btn px-2 rounded-3"><img src="assets/images/icon-save.png" class="result-card__btn_icon" alt="Save for later"/>Save</button>
+                  <a class="so-link btn-link" src="" href="" target="_blank">
+                    <button class="btn visit-btn w3s-button btn-success px-3 mx-2 rounded-3">
                     Visit
                   </button></a>
                 </div>
@@ -141,8 +141,41 @@
             </div>
           </div>
         </div>
+        <button
+            class="bg-success text-white px-3 mx-2 rounded-3"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-saved"
+            onclick="loadSaved()"
+          >
+            View Saved
+          </button>
       </div>
 
+      <!-- Show saves section -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="modal-saved">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+          <div class="modal-content rounded-4 shadow">
+            <div class="modal-body p-5">
+              <h2 class="fw-bold mb-3 text-center">Saved Blurbs:</h2>
+              <div class="mb-4">
+                <p>
+               <ul class="saved-ul">
+                <!-- Saved data is injected here -->
+                <li class="text-center list-unstyled">You should save some Blurbs first!</li>
+               </ul>
+                </p>
+               </div>
+              <button
+                type="button"
+                class="btn btn-lg btn-danger mt-5 w-100"
+                data-bs-dismiss="modal"
+                aria-label="close"
+              >Done!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--About modal-->
       <div class="modal fade" tabindex="-1" role="dialog" id="modal-about">
         <div class="modal-dialog modal-dialog-centered" role="dialog">
@@ -170,7 +203,8 @@
                 <p><ol><li>Logo: <a href="https://www.flaticon.com/free-icons/wings" title="wings icons">Wings icons created by Freepik - Flaticon</a></li>
                   <li>Save icon: <a href="https://www.flaticon.com/free-icons/save" title="save icons">Save icons created by Freepik - Flaticon</a></li>
                   <li><a href="https://www.flaticon.com/free-icons/hyperlink" title="hyperlink icons">Hyperlink icons created by Tanah Basah - Flaticon</a></li>
-                  </ol>
+                <li>All logos are the property of their respective owners.</li>  
+                </ol>
                 </p>
                 
               </div>
@@ -186,8 +220,7 @@
           </div>
         </div>
       </div>
-
-         </div>
+              </div>
           <!-- Footer section -->
       <footer
       class="page-footer footer d-flex flex-row text-white bg-dark">
