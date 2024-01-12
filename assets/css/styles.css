@@ -29,7 +29,7 @@ body {
 /** Main section **/
 
 .main {
-  width: 80%;
+  width: 90%;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -107,6 +107,17 @@ body {
   margin: 0 1px;
 }
 
+.result-card__head_icon {
+  width: 32px;
+  margin: 0 8px 0 0;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+.icon-so {
+  background-color: white;
+}
+
 .result-card button  {
   animation: wobble 0.5s ease-in-out;
 }
@@ -137,6 +148,7 @@ body {
 }
 
 /** Modal **/
+
 .about-button {
   border: 1px solid white;
   margin: 0 20px;
